@@ -1,7 +1,7 @@
 ---
 title: "Data Driven Decision-Making in Business is een kk vak"
 subtitle: "DDMB IBA 2022: Week 1"
-author: "Fill in all student names and team number"
+author: "Bent Eelman: 2713151, Twan van Neijenhof: 2696735, Julius Tempelaars: 2699775. Team: 130"
 date: "Last compiled on `r Sys.Date()`"
 output: pdf_document
 ---
