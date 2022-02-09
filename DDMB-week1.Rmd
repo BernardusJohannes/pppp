@@ -46,13 +46,15 @@ Create a dummy variable, where 1 means private room, and 0 means entire apartmen
 ```{r}
 question1b<-function(){
   
-  # write your code here
-  
-  # first create the dummy variable using ifelse() statements
+    # write your code here
+  d$dummy <- ifelse(d$roomtype=="Private room", 1, 0)
+  table(d$dummy)
   # after it is created, save this variable in your environment 
   # using <<- to assign it to an object (ex df$dummy <<- df$dummy)
+  d$dummy <<- d$dummy
   # create barplot last so this is shown in output below
-}
+  barplot(d$dummy)
+  }
 question1b()
 ```
 
