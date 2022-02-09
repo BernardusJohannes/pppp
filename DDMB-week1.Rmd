@@ -1,5 +1,5 @@
 ---
-title: "Data Driven Decision-Making in Business"
+title: "Data Driven Decision-Making in Business is een kk vak"
 subtitle: "DDMB IBA 2022: Week 1"
 author: "Fill in all student names and team number"
 date: "Last compiled on `r Sys.Date()`"
