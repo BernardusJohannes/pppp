@@ -62,7 +62,7 @@ Perform a boxplot on `pricelast` and the dummy variable you've created. What can
 
 ```{r}
 question1b<-function(){
-  # write your code here
+   boxplot(d$pricelast, d$dummy)
 }
 question1b()
 ```
