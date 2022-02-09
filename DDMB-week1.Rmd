@@ -18,46 +18,6 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = 'C:/Users/Gebruiker/Desktop/demo_DDMB')
 ```
 
-# 0. Get ready
-
-Before you start, set up your environment. Choose a working directory (i.e. folder) that makes sense, and make sure that everytime you start a new assignment, you clean out your environment:
--  `getwd()` to check your working directory
-- `setwd()` to change working directory
-- `?setwd` to learn more
-
-*It is very important you download the Rmarkdown file in this directory, and do NOT change its name! Use this location to store your R project. The data file should be the same folder. Write your code inside the functions you'll find below.Do NOT delete these functions!*
-
-Please see my instruction video on [how to set up a working directory and using Rproject](https://www.youtube.com/watch?v=iwNo4H0M8VA). In this video you can learn more about [Rmarkdown](https://www.youtube.com/watch?v=xccC42Ojwg8).
-
-Below you can see a R chunk in which I load tinytex library to knit (install this package first!), check my directory and empty my environment.
-
-```{r}
-library(tinytex)
-getwd() # check working directory
-rm(list=ls()) 
-```
-
-*Note*: you can type your R commands below the # comment line. Feel free to add or remove # comment lines to make the code clearer. Each chunk can be executed separately. Run the commands by the green arrow on the right of the R chunk. You will see the answer below your code (see the example below). If it doesn't run, you made a mistake in your code.
-
-## Example working with Rmd file
-```{r}
-# here i create two random variables
-x <- rnorm(100)
-y <- rnorm(100)
-# here i inspect these variables
-summary(x)
-summary(y)
-# and plot them
-plot(x,y, col="red")
-```
-
-## Handing in the assignment and your solutions
-
-By the end of the week you are required to hand in this .Rmd file **as a pdf** and **as a .r File**. To do this, you need to `Knit` the document (see on top to your left next to the save button). The resulting pdf file has to be handed in via canvas. We will inspect the quality of the R code in this file. Note that your code will be checked on plagiarism.
-
-\textcolor{red}{Next to your R markdown file, hand in your answers via the excel sheet} (do this for all questions!). You can find the excel sheet in folder Assignment/Week1 on canvas. Your solutions will be automatically graded, so be precise with numbers! I will check on three decimals. Fill in your solutions on the `INPUT` sheet, but check them via the `OUTPUT` sheet. 
-
-Please delete the lines following `0. Get Ready` from the .Rmd document before you hand in your solutions. Get yourself used to work with relative paths, that means that you need to think about a folder structure to work from. See lecture slides on how to set-up workflow!
 
 # 1. Explore 
 In this first assignment, you are required to make certain steps in order to get acquainted with the datafile that you will also analyze for your individual report. You will analyze [Airbnb data](http://insideairbnb.com/get-the-data.html). Everyone selects Salem OR (e.g. Salem in Oregon, USA) for this first week's assignment. This data can be found in canvas > files > assignment > assignment 1. For the individual report I ask you to choose another city (see [spreadsheet](https://docs.google.com/spreadsheets/d/1YxkH9qV6sF2_N3v4ZK6c-l01cVmen8eyYeyFvEnrLiU/edit?usp=sharing) for which cities are already taken). Make sure your code is general enough so you can replicate the code for the assignment.
@@ -69,9 +29,13 @@ question1a<-function(){
   
   # write your code per line in this order:
   # read data file, use <<- to save this in your environment
+  d <<- read.csv("Salem OR.csv")
   # print nonmissing observations
+  print(nrow(d))
   # print maximum value of number of reviews
+  max(d$reviewtotal)
   # print the number of neighborhoods
+  nrow(table(d$neighborhood))
 }
 question1a()
 
