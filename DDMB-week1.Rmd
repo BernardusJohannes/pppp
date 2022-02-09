@@ -78,6 +78,11 @@ question2a<-function(){
   # write your code here
   
   # first create the dummy variable using ifelse() statements
+  
+   d$onebedroom <- ifelse(d$roomtype == "Entire home/apt" & d$bedrooms == 1, "Entire home/apt", NA)
+   d$onebedroom <- ifelse(d$roomtype == "Private room" & d$bedrooms == 1, "Private room", d$onebedroom)
+   d$onebedroom <<- d$onebedroom
+  
   # TIP: run a crosstabulation to check whether you indeed have the same 
   # number of observations as in the original variable
   
