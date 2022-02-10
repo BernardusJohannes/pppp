@@ -117,12 +117,24 @@ How are the monthly number of reviews related to the price? Analyze the price th
 question3<-function(){
   
   # write your code here
-  # print correlation between reviews per month and pricelast
-  # print maximum value of reviews per month
-  # among all listings
+  #print correlation between reviews per month and pricelast
+ 
+  pricelast2 <- d$pricelast[which(d$pricelast <= 500)]
+  #test to see if it doesn't show > 500
+  pricelast2
   
-  # create a scatterplot of this relationship
-  # for listings with a price below 500$
+  review.p.m <- d$reviewspermonth[which(d$pricelast <= 500)]
+  
+  print(cor(review.p.m, pricelast2, use = "complete.obs"))
+  
+  #print maximum value of reviews per month among all listings
+  
+  print(max(d$reviewspermonth, na.rm = TRUE))
+  
+  #create a scatterplot of this relationship for listings with a price below 500$
+  
+  plot(pricelast2, review.p.m)
+  
   
 }
 question3()
