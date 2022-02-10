@@ -163,9 +163,15 @@ Give one more approach to deal with NAs and think of the trade-off between this 
 library(imputeTS)
 
 question4b<-function(){
+ 
   # write your code here
+  
   # first calculate the average when moving average is 1
+    print(mean(d$review_scores_rating[na.ma(1)]))
+  
   # then calculate the average when moving average is 10
+    print(mean(d$review_scores_rating[na.ma(10)]))
+    
   # use print() around your commands
 }
 question4b()
