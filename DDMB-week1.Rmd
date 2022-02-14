@@ -187,12 +187,21 @@ question5a<-function(){
   
   # write your code here
   # create the dummy variable using ifelse statement
+  d$review_scores_averages <- (d$review_scores_accuracy + d$review_scores_cleanliness + d$review_scores_communication + d$review_scores_location     + d$review_scores_rating +       d$review_scores_value) / 6
+
+  d$review_scores_averages <- ifelse(d$review_scores_averages <= 4.94, "lower", "higher")
+  d$review_scores_averages[is.na(d$review_scores_averages)] <- 0
+    
+
   # save as variable in dataset
   
   # to save this variable in your environment, use <<-
   # (ex df$high_review <<- df$high_review)
+  d$review_scores_averages <<- d$review_scores_averages
   
   # run table last so it is shown in your output below
+  table(d$review_scores_averages)
+ 
 }
 question5a()
 ```
@@ -203,11 +212,7 @@ Use ggplot to plot this availability over the last quarter (`availability_90` wi
 library(ggplot2)
 question5b<-function(){
   
-  # write your code here
-  d$review_scores_averages <- (d$review_scores_accuracy + d$review_scores_cleanliness + d$review_scores_communication + d$review_scores_location + d$review_scores_rating + d$review_scores_value) / 6
-  mean(d$review_scores_averages, na.rm = TRUE)
-  print(d$review_scores_averages, na.rm = TRUE)
-  d$review_scores_averages <- d$review_scores_averages
+
   
   # save each ggplot in another r object, named for instance g1, g2 etc
   # use print() to output every plot you've created
