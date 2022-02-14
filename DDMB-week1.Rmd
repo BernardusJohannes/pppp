@@ -212,12 +212,16 @@ Use ggplot to plot this availability over the last quarter (`availability_90` wi
 library(ggplot2)
 question5b<-function(){
   
-   ggplot1 <- ggplot(data = d, mapping = aes(x =  availability_90, y = pricelast, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Availability over last quarter", y = "Last known price of rent for property" ) + ylim(3, 999)
+   ggplot1 <- ggplot(data = remove_missing(d, na.rm = TRUE, vars = d$review_scores_averages), mapping = aes(x =  availability_90, y = pricelast, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Availability over last quarter", y = "Last known price of rent for property" ) + ylim(3, 999) 
   
-    
- 
   
-  print(ggplot(data = d, mapping = aes(x =  availability_90, y = pricelast, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Availability over last quarter", y = "Last known price of rent for property" ) + ylim(3, 999)) 
+  print(ggplot(data = remove_missing(d, na.rm = TRUE, vars = d$review_scores_averages), mapping = aes(x =  availability_90, y = pricelast, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Availability over last quarter", y = "Last known price of rent for property" ) + ylim(3, 999)) 
+  
+  
+  
+  ggplot2 <- ggplot(data = remove_missing(d, na.rm = TRUE, vars = d$review_scores_averages), mapping = aes(x =  availability_90, y = pricelast, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Availability over last quarter", y = "Last known price of rent for property" ) + ylim(3, 499)
+
+print(ggplot(data = remove_missing(d, na.rm = TRUE, vars = d$review_scores_averages), mapping = aes(x =  availability_90, y = pricelast, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Availability over last quarter", y = "Last known price of rent for property" ) + ylim(3, 499))
   
   # save each ggplot in another r object, named for instance g1, g2 etc
   # use print() to output every plot you've created
