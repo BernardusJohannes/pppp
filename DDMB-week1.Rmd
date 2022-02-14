@@ -227,6 +227,10 @@ Recode price in such a way that you end up with 3 groups (low, medium and high p
 ```{r}
 question5c<-function(){
   
+    ggplot1 <- ggplot(data = d, mapping = aes(x = pricelast <= 999, y = availability_90, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Last known price of rent for property", y = "Availability over last quarter" )
+  
+  print(ggplot(data = d, mapping = aes(x = pricelast, y = availability_90, col = review_scores_averages)) + geom_point() + geom_smooth( method = "lm") + labs(x = "Last known price of rent for property", y = "Availability over last quarter" ))
+  
   # write your code here
   # create the grouping variable by first ordering the dataset using sort
   # then think of breaks that split the data in three equal parts
