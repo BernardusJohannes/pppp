@@ -236,16 +236,22 @@ Recode price in such a way that you end up with 3 groups (low, medium and high p
 ```{r}
 question5c<-function(){
   
-    
-  
-  # write your code here
+   
+ # write your code here
   # create the grouping variable by first ordering the dataset using sort
   # then think of breaks that split the data in three equal parts
   # use theses breaks in the cut function
-  
+  sort(d$pricelast)
+
+     print(Price_grp <-cut(d$pricelast, breaks = c(1, 83, 150, 3000)))
+     print(d$price_grp1 <- Price_grp)
   # when the grouping variable is created, use <<- to save in your environment
-  # print the average price by using tapply of pricelast and the grouping variable
-  # run table of grouping variable last so it is shown in your output below
+  
+  # ANSWER1: run table of grouping variable to check the distribution
+     print(table(Price_grp))
+  
+  # ANSWER2: print the average price per group by using tapply 
+     tapply(d$pricelast, d$price_grp1, mean)
 }
 question5c()
 ```
@@ -259,7 +265,14 @@ Inspect the total number of reviews the listings have received over time `lastre
 question5d<-function(){
   
   # write your code here
-  # run summary of the anova output last so it is shown in your output below
+    print(tapply(d$pricelast[d$price_grp1 == "(100,3000]"], d$availability_90[d$price_grp1 == "(100,3000]"]))
+  
+  # run an anova to test whether the three price groups differ in availability_90
+  print(aov_results <- aov(d$availability_90 ~ d$pricelast[d&price_grp1]))
+  
+  # ANSWER1: summary of the anova output
+  summary(aov_results)
+  
 }
 question5d()
 ```
@@ -272,10 +285,21 @@ Split the availability for last quarter between those listings that were availab
 ```{r}
 question5e<-function(){
   
+ # write your code here
   # write your code here
   # create the dummy variable using the ifelse statement
-  # use <<- so it is saved in your environment
-  # run table last so it is shown in your output below
+ 
+  print(availability_70 <- ifelse(d$availability_90 >= 70, "More", "Less"))
+ 
+  
+  # you have to run the following line (remove the hashtag & change names):
+  # dataframe$dummy <<- dataframe$dummy 
+  
+  print(availability_70 <<- availability_70)
+  
+  # ANSWER1: use table to inspect how many listings were available more than 70 days
+   
+  table(availability_70)
 }
 question5e()
 ```
