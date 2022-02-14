@@ -204,6 +204,11 @@ library(ggplot2)
 question5b<-function(){
   
   # write your code here
+  d$review_scores_averages <- (d$review_scores_accuracy + d$review_scores_cleanliness + d$review_scores_communication + d$review_scores_location + d$review_scores_rating + d$review_scores_value) / 6
+  mean(d$review_scores_averages, na.rm = TRUE)
+  print(d$review_scores_averages, na.rm = TRUE)
+  d$review_scores_averages <- d$review_scores_averages
+  
   # save each ggplot in another r object, named for instance g1, g2 etc
   # use print() to output every plot you've created
 
